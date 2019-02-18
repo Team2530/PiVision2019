@@ -6,6 +6,7 @@ import time
 import logging
 from ctypes import *
 from pixy import *
+import math
 
 # Pixy2 Python SWIG get blocks example #
 
