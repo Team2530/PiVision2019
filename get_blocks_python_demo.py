@@ -7,6 +7,13 @@ import logging
 from ctypes import *
 from pixy import *
 import math
+v = (k-j)/(m-n)
+w = m*v+j
+k = #y-intercept of line 1 (will get this from pixy somehow)
+j = #y-intercept of line 2 (will get this from pixy somehow)
+m = #slope of line 2 (will get this from pixy somehow)
+n = #slope of line 1 (will get this from pixy somehow)
+print("("v","w")")
 
 # Pixy2 Python SWIG get blocks example #
 
