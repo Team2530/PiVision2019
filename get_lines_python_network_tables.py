@@ -78,13 +78,26 @@ while 1:
 #    for index in range (0, i_count):
 #      print '[INTERSECTION: INDEX=%d ANGLE=%d]' % (intersections[index].m_index, intersections[index].m_angle)
     for index in range (0, 1): #v_count
-      print '[VECTOR: INDEX=%d X0=%3d Y0=%3d X1=%3d Y1=%3d]' % (vectors[index].m_index, vectors[index].m_x0, vectors[index].m_y0, vectors[index].m_x1, vectors[index].m_y1)
+      # print '[VECTOR: INDEX=%d X0=%3d Y0=%3d X1=%3d Y1=%3d]' % (vectors[index].m_index, vectors[index].m_x0, vectors[index].m_y0, vectors[index].m_x1, vectors[index].m_y1)
       x3 = vectors[index].m_x1 - vectors[index].m_x0
       y3 = vectors[index].m_y1 - vectors[index].m_y0
       r1, t1 = cart2pol(x3, y3)
-      print r1
-      print math.degrees(t1)
-      NetworkTables.getTable("datatable").putNumber('r1', r1);
-      NetworkTables.getTable("datatable").putNumber('t1', math.degrees(t1));
-    time.sleep(1)
-
+     # print r1
+      t1 = math.degrees(t1)
+     # print math.degrees(t1)
+      motorscale = .1 #0.01
+      if(t1>=95):
+        leftpow = .8+0.1*motorscale*(90-t1)
+        rightpow= .8-0.1*motorscale*(90-t1)
+      elif(t1<=85):
+        leftpow = .8-0.1*motorscale*(90+t1)
+        rightpow = .8+0.1*motorscale*(90+t1)
+      else:
+        print "YAY"
+      print leftpow
+      print rightpow
+    # NetworkTables.getTable("datatable").putNumber('r1', r1);
+      NetworkTables.getTable("datatable").putNumber('leftpow',leftpow)
+      NetworkTables.getTable("datatable").putNumber('rightpow',rightpow)
+    # NetworkTables.getTable("datatable").putNumber('t1', t1);
+    #time.sleep(1)
