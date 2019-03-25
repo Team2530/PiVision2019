@@ -16,7 +16,7 @@ cat file_list
 
 
 
-
+```
 
 # --exclude=PATTERN exclude files matching PATTERN
 # --exclude-from=FILE read exclude patterns from FILE
@@ -31,5 +31,5 @@ cat file_list
 # SYNC_EXTRA="--dry-run" ./sync_rtp
 
 rsync $SYNC_EXTRA -vazr --delete --files-from=/root/rsync/file_list --exclude-from=/root/rsync/exclude_list 10.25.30.55:/ /
-
+```
 
